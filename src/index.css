@@ -630,7 +630,14 @@ tr.is-picked td { background: rgba(63, 208, 201, 0.05); }
 .search { display: flex; align-items: center; gap: 5px; padding: 0 7px; border: 1px solid var(--line); border-radius: 6px; height: 28px; color: var(--dim); }
 .search input { border: 0; background: transparent; height: auto; padding: 0; width: 130px; }
 .select { height: 28px; font-size: 10.5px; }
-.batch-bar { display: flex; align-items: center; gap: 8px; margin-top: 10px; padding: 7px 10px; border-radius: 7px; background: rgba(63, 208, 201, 0.08); border: 1px solid rgba(63, 208, 201, 0.3); font-size: 10.5px; }
+.batch-bar {
+  position: fixed; left: 50%; bottom: 22px; transform: translateX(-50%); z-index: 60;
+  display: flex; align-items: center; gap: 10px; padding: 8px 12px 8px 16px;
+  border-radius: 999px; font-size: 11px;
+  background: rgba(9, 20, 24, 0.97); border: 1px solid rgba(63, 208, 201, 0.45);
+  box-shadow: 0 18px 40px -18px rgba(0, 0, 0, 0.95), 0 0 0 1px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+}
 .batch-bar span { margin-right: auto; color: var(--accent-2); }
 .registry-detail { margin-top: 10px; }
 .detail-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; padding-bottom: 10px; border-bottom: 1px solid var(--line-soft); }
