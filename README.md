@@ -53,9 +53,14 @@ Node 18+ is required. No API keys, no backend, no database — the app is a stat
 
 ---
 
-## Deploy to GitHub Pages (3 steps)
+## Deploy to GitHub Pages
 
-1. **Create the repository** on GitHub (public or private), then push this folder:
+Live: <https://julianatseng.github.io/sponge-shift/>
+
+Step-by-step walkthrough, including the permission errors that are easy to hit:
+**[docs/DEPLOY.md](docs/DEPLOY.md)**.
+
+1. **Create an empty repository** on GitHub — no README, no `.gitignore`, no licence — then push:
 
    ```bash
    git init
@@ -66,8 +71,14 @@ Node 18+ is required. No API keys, no backend, no database — the app is a stat
    git push -u origin main
    ```
 
+   GitHub does not accept an account password over HTTPS. Use a Personal Access Token carrying
+   **both `repo` and `workflow`** scopes — `workflow` is mandatory because this repository ships
+   `.github/workflows/deploy.yml`. Do not use the web upload button: Finder hides `.github/`, so the
+   workflow never arrives.
+
 2. **Turn on Pages**: repository → **Settings** → **Pages** → *Build and deployment* →
-   **Source: GitHub Actions**.
+   **Source: GitHub Actions**. Do this before the first push; if you do it afterwards, re-run the
+   failed deploy job.
 
 3. **Wait for the run.** The included workflow (`.github/workflows/deploy.yml`) builds and publishes on
    every push to `main`. The site appears at
